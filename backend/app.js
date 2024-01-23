@@ -5,9 +5,10 @@ const cookieParser = require('cookie-parser')
 const path = require('path')
 const dotenv = require('dotenv');
 dotenv.config({path:path.join(__dirname,"config/config.env")});
-
-
+import cors from "cors";
+app.use(cors());
 app.use(express.json());
+
 app.use(cookieParser());
 app.use('/uploads', express.static(path.join(__dirname,'uploads') ) )
 
